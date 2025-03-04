@@ -1,0 +1,41 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_esp_blufi (0.0.2):
+    - Flutter
+    - OpenSSL-Universal
+  - integration_test (0.0.1):
+    - Flutter
+  - OpenSSL-Universal (3.3.2000)
+  - permission_handler_apple (9.3.0):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_esp_blufi (from `.symlinks/plugins/flutter_esp_blufi/ios`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+
+SPEC REPOS:
+  trunk:
+    - OpenSSL-Universal
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_esp_blufi:
+    :path: ".symlinks/plugins/flutter_esp_blufi/ios"
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_esp_blufi: ce06c0059f39c9a545f000203ea01058346b2c39
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  OpenSSL-Universal: b60a3702c9fea8b3145549d421fdb018e53ab7b4
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+
+PODFILE CHECKSUM: 6e700dec67e6deac9b1c69bb14c49a2217a12d15
+
+COCOAPODS: 1.15.0
