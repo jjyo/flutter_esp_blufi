@@ -583,7 +583,21 @@ public class FlutterEspBlufiPlugin implements FlutterPlugin, MethodCallHandler, 
             json.put("status", status);
             sendEvent("onDeviceStatusResponse", json);
             if (status == STATUS_SUCCESS) {
-                json.put("response", response.generateValidInfo());
+                Map responseJson = new HashMap();
+                responseJson.put("opMode", response.getOpMode());
+                responseJson.put("softAPSecurity", response.getSoftAPSecurity());
+                responseJson.put("softAPChannel", response.getSoftAPChannel());
+                responseJson.put("softAPConnCount", response.getSoftAPConnectionCount());
+                responseJson.put("softAPMaxConnCount", response.getSoftAPMaxConnectionCount());
+                responseJson.put("softAPSSID", response.getSoftAPSSID());
+                responseJson.put("softAPPassword", response.getSoftAPPassword());
+                responseJson.put("staConnStatus", response.getStaConnectionStatus());
+                responseJson.put("staSSID", response.getStaSSID());
+                responseJson.put("staBSSID", response.getStaBSSID());
+                responseJson.put("staPassword", response.getStaPassword());
+                responseJson.put("isStaConnectWifi", response.isStaConnectWifi());
+
+                json.put("response", responseJson);
                 printDebugLog(String.format("Receive device status response:\n%s", response.generateValidInfo()));
             } else {
                 printDebugLog("Device status response error, code=" + status);

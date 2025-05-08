@@ -123,7 +123,7 @@ class MethodChannelFlutterEspBlufi extends FlutterEspBlufiPlatform {
       } else if (event == 'onPostConfigureParams') {
         callback.onPostConfigureParams?.call(data['status']);
       } else if (event == 'onDeviceStatusResponse') {
-        callback.onDeviceStatusResponse?.call(data['status'], data['response']);
+        callback.onDeviceStatusResponse?.call(data['status'], data['response']?.cast<String, dynamic>());
       } else if (event == 'onConnectionStateChange') {
         callback.onConnectionStateChange?.call(data['status'], data['newState']);
       } else if (event == 'onWifiScanResults') {

@@ -13,7 +13,7 @@ class FlutterEspBlufiCallback {
   final Function(int status, int newState)? onConnectionStateChange;
   final Function(int status)? onNegotiateSecurityResult;
   final Function(int status)? onPostConfigureParams;
-  final Function(int status, String? message)? onDeviceStatusResponse;
+  final Function(int status, Map<String, dynamic>? response)? onDeviceStatusResponse;
   final Function(int status, List<Map<String, dynamic>>? results)? onWifiScanResults;
   final Function(int status, Uint8List data)? onReceiveCustomData;
   final Function(int errorCode)? onError;

@@ -312,15 +312,28 @@
 }
 
 - (void)blufi:(BlufiClient *)client didReceiveDeviceStatusResponse:(BlufiStatusResponse *)response status:(BlufiStatusCode)status {
+    NSMutableDictionary *json = [NSMutableDictionary dictionary];
+    json[@"status"] =@(status);
     if (status == StatusSuccess) {
+        json[@"response"] = @{
+            @"opMode": @(response.opMode),
+            @"softAPSecurity": @(response.softApSecurity),
+            @"softAPChannel": @(response.softApChannel),
+            @"softAPConnCount": @(response.softApConnectionCount),
+            @"softAPMaxConnCount": @(response.softApMaxConnection),
+            @"softAPSSID": response.softApSsid,
+            @"softAPPassword": response.softApPassword,
+            @"staConnStatus": @(response.staConnectionStatus),
+            @"staSSID": response.staSsid,
+            @"staBSSID": response.staBssid,
+            @"staPassword": response.staPassword,
+            @"isStaConnectWifi": @(response.isStaConnectWiFi)
+        };
         [self updateMessage:[NSString stringWithFormat:@"Receive device status:\n%@", response.getStatusInfo]];
     } else {
         [self updateMessage:[NSString stringWithFormat:@"Receive device status error: %d", status]];
     }
-    [self sendEvent:@"onDeviceStatusResponse" withData:@{
-        @"status": @(status),
-        @"response": response.description
-    }];
+    [self sendEvent:@"onDeviceStatusResponse" withData:json];
 }
 
 - (void)blufi:(BlufiClient *)client didReceiveDeviceScanResponse:(NSArray<BlufiScanResponse *> *)scanResults status:(BlufiStatusCode)status {
